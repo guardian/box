@@ -6,6 +6,7 @@ lazy val root = (project in file(".")).
       organization := "com.gu",
       scalaVersion := "2.12.3"
     )),
+    crossScalaVersions := Seq("2.12.3", "2.11.11"),
     name := "box",
     libraryDependencies += scalaTest % Test
   )
