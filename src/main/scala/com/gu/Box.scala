@@ -35,6 +35,6 @@ private class AtomicRefBox[T](t: T) extends Box[T] {
   def alter(f: T => T): Future[T] = Future.successful(ref.updateAndGet(t => f(t)))
 
   def map[A](f: T => A): Box[A] = new AtomicRefBox[A](f(get()))
-  def flatMap[A](f: T => Box[A]): Box[A] = f(t)
+  def flatMap[A](f: T => Box[A]): Box[A] = f(get())
 }
 
